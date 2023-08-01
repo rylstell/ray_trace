@@ -582,7 +582,9 @@ Color Scene::trace(const Vec3& ray, const Vec3& ray_origin, int bounce, float io
     float fres = fresnel(ior, transmittance_ior, mat.reflectance, inter.normal, ray);
     float rtf = 1 - mat.phong_factor;
 
-    return mat.color * (intensity * mat.phong_factor) + reflected_color * (fres * rtf) + transmitted_color * ((1.0 - fres) * rtf);
+    return mat.color * (intensity * mat.phong_factor)
+           + reflected_color * (fres * rtf)
+           + transmitted_color * ((1.0 - fres) * rtf);
 
 }
 
