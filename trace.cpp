@@ -431,18 +431,27 @@ void Box::rotate_z(float theta) {
 }
 
 void Box::rotate_x(float theta, Vec3 rotation_origin) {
+    pos -= rotation_origin;
+    pos = pos.rotate_x(theta);
+    pos += rotation_origin;
     for (int i = 0; i < 6; i++) {
         rectangles[i].rotate_x(theta, rotation_origin);
     }
 }
 
 void Box::rotate_y(float theta, Vec3 rotation_origin) {
+    pos -= rotation_origin;
+    pos = pos.rotate_y(theta);
+    pos += rotation_origin;
     for (int i = 0; i < 6; i++) {
         rectangles[i].rotate_y(theta, rotation_origin);
     }
 }
 
 void Box::rotate_z(float theta, Vec3 rotation_origin) {
+    pos -= rotation_origin;
+    pos = pos.rotate_z(theta);
+    pos += rotation_origin;
     for (int i = 0; i < 6; i++) {
         rectangles[i].rotate_z(theta, rotation_origin);
     }
